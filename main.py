@@ -1,11 +1,12 @@
 import csv
 import glob
+import os
 
 # Variables for MediaWiki table construction
 header = """{| class="wikitable sortable"
 |-
 ! Dialogue Text !! Coversant !! Area !! Difficulty !! Modifiers !! conv_id !! line_id
-|-"""
+|- \n"""
 end = "|} \n\n"
 body = ""
 
@@ -18,7 +19,9 @@ csv_files = glob.glob(f"{folder_path}/*.csv")
 
 # Loop through each CSV file and read it
 for file in csv_files:
+    filename = os.path.basename(file)
     table = ""
+    table += filename + "\n"
     table += header   
     with open(file, newline='', encoding='utf-8') as f:
         csv_table = csv.reader(f)
