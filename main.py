@@ -8,7 +8,6 @@ header = """{| class="wikitable sortable"
 |-"""
 end = "|} \n\n"
 body = ""
-table = header
 
 # If anyone else is using this, make sure to change this to your local path
 folder_path = '/home/viv/Documents/DEWP Skill Tables/dewp-check-tables-from-csv/csvs'
@@ -19,6 +18,8 @@ csv_files = glob.glob(f"{folder_path}/*.csv")
 
 # Loop through each CSV file and read it
 for file in csv_files:
+    table = ""
+    table += header   
     with open(file, newline='', encoding='utf-8') as f:
         csv_table = csv.reader(f)
 
@@ -50,6 +51,6 @@ for file in csv_files:
             print(table)
 
         table += end   
+        with open("output.txt", "a") as f:
+            print(table, file=f)
 
-with open("output.txt", "w") as f:
- print(table, file=f)
