@@ -222,3 +222,4 @@ pip-selfcheck.json
 # End of https://www.toptal.com/developers/gitignore/api/python,linux,venv,visualstudiocode
 
 *.csv
+output.txt
