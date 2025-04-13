@@ -40,8 +40,11 @@ for file in csv_files:
                     + str(row[4]) + "||"
                     + str(row[5]) + "||"
                     + str(row[6]) + "||"
-                    + str(row[7]) + "\n" + "|-" )
+                    + str(row[7]))
             
+            body = body.replace('\n','<p>')
+
+            body += "\n" + "|-" 
                 
             table += body
             table += "\n"
